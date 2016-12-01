@@ -62,6 +62,7 @@ Promise.all([
     testBundle('jss-without-preset'),
     testBundle('jss'),
     testBundle('styletron'),
+    testBundle('free-style'),
 ]).then(() => {
     rimraf(path.join(__dirname, 'dist'), (err) => {
         if (err) {

@@ -1,6 +1,6 @@
 import { Suite } from 'benchmark';
 import beautifyBenchmark from 'beautify-benchmark';
-import { aphroditeCase, jssCase, glamorCase, jssWithoutPresetCase, cxsCase, cxsOptimizedCase, styletronCase } from './cases';
+import { aphroditeCase, jssCase, glamorCase, jssWithoutPresetCase, cxsCase, cxsOptimizedCase, styletronCase, freeStyleCase } from './cases';
 
 export const run = () => {
     console.log('Running simple test.');
@@ -12,6 +12,7 @@ export const run = () => {
     console.log('cxs length', cxsCase().length);
     console.log('cxs-optimized length', cxsOptimizedCase().length);
     console.log('styletron length', styletronCase().length);
+    console.log('free-style length', freeStyleCase().length);
 
     const jssSuite = new Suite();
 
@@ -22,6 +23,7 @@ export const run = () => {
     jssSuite.add('cxs', () => cxsCase());
     jssSuite.add('cxs-optimized', () => cxsOptimizedCase());
     jssSuite.add('styletron', () => styletronCase());
+    jssSuite.add('free-style', () => freeStyleCase());
 
     jssSuite.on('cycle', (e) => {
         beautifyBenchmark.add(e.target);
